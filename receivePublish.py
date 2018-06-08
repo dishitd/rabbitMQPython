@@ -27,16 +27,16 @@ requestQueueName =  config['DEFAULT']['QUEUE_NAME_REQUEST']
 parameters = pika.ConnectionParameters(
     host=hostName,
     port='5672',#'5672',
-    virtual_host='pstn',
+    virtual_host='test',
     credentials=credentials)
 
 ####
 #   Method to parse message
-#   {"uuid": UUID, "Request": { "api-name": "pstnCheck","fnn": <fnn> }}
+#   {"uuid": UUID, "Request": { "api-name": "pstnCheck","no": no }}
 ####
 def parseMessage(body):
     
-    json_string = '{ "uuid":"1231","Request":{"api-name":"pstnCheck","fnn":"0289202551" } }'
+    json_string = '{ "uuid":"1231","Request":{"api-name":"Check","fnn":"0303030303" } }'
     
     data = json.loads(json_string)
    
